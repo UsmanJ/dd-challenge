@@ -24,6 +24,10 @@ class ApiFetcher
     response.body
   end
 
+  def ok?
+    response.message == "OK"
+  end
+
   private
 
   attr_accessor :response
