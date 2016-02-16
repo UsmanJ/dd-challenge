@@ -26,6 +26,14 @@ get '/price' do
   filter.json_price.to_json
 end
 
+get '/tags' do
+  content_type :json
+  fetcher = ApiFetcher.new
+  fetcher.request
+  filter = DataFilter.new(fetcher.response_data)
+  filter.tags_count.to_json
+end
+
 get '/materials' do
   content_type :json
   fetcher = ApiFetcher.new
