@@ -69,5 +69,11 @@ describe DataFilter do
     end
   end
 
+  # context '#tags_count' do
+  #   it 'should return the top 5 tags' do
+  #     expect(data_filter.tags_count).to eq({"average"=>3, "highest_quantity"=>{"quantity"=>4}, "lowest_quantity"=>{"quantity"=>2}})
+  #   end
+  # end
+
 
 end

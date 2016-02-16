@@ -48,4 +48,20 @@ class DataFilter
     results['lowest_quantity'] = min_max_quantity[0]
     results
   end
+
+  def tags_count
+    counts = Hash.new(0)
+    results = []
+    data['results'].each do |result|
+      result['tags'].each do |tag|
+        counts[tag] += 1
+      end
+    end
+    counts = counts.sort { |a,b| a[1] <=> b[1] }
+    5.times do
+      results += counts.pop
+    end
+    results
+  end
+
 end
