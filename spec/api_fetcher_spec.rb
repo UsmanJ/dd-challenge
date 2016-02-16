@@ -1,4 +1,6 @@
-decribe ApiFetcher do
+require 'api_fetcher'
+
+describe ApiFetcher do
 
   let(:key) { '123456' }
   subject(:apiFetch) { described_class.new() }
