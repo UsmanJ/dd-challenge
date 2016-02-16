@@ -26,8 +26,8 @@ class DataFilter
     p (sum / @data['results'].count).round(2)
   end
 
-  def lowest_price
-
+  def min_max_price
+    data['results'].minmax {|a,b|a['price'] <=> b['price']}
   end
 
 end
