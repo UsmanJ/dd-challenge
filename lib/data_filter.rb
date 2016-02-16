@@ -1,26 +1,29 @@
 require_relative 'api_fetcher'
+require 'json'
 
 class DataFilter
 
-  attr_reader :api_fetch
+  attr_reader :api_fetch, :data
 
   def initialize(data)
-    @data = data
+    @data = JSON.parse(data)
   end
 
   def count
-    @data['count']
+    data['count']
   end
 
   def average_price
     @data['results']
     i = 0
+    sum = 0
     while i < @data['results'].count
-      sum +=@data['results'][i]['price']
+      sum += @data['results'][i]['price'].to_f
       i += 1
-      puts "This loop will run #{i} more times"
+      puts "this item costs £#{sum}. The total is £#{sum}"
+      puts "average is now £#{(sum / @data['results'].count).round(2)}"
     end
-    p sum
+    p (sum / @data['results'].count).round(2)
   end
 
   def lowest_price
