@@ -13,10 +13,10 @@ describe DataFilter do
 
   let(:data2) {JSON.generate({results: [
     {price: 3.0},
-    {price: 3.0},
     {price: 4.0},
     {price: 5.0},
-    {price: 5.0}
+    {price: 6.0},
+    {price: 7.0}
   ]})}
 
 
@@ -34,7 +34,15 @@ describe DataFilter do
   context '#average_price' do
 
     it 'should return the average price' do
-      expect(data_filter2.average_price).to eq 4.0
+      expect(data_filter2.average_price).to eq 5.0
+    end
+
+  end
+
+  context '#min_max_price' do
+
+    it 'should return the items with the highest and lowest price' do
+      expect(data_filter2.min_max_price).to eq([{'price'=>3.0}, {'price'=>7.0}])
     end
 
   end
