@@ -3,7 +3,6 @@ require 'json'
 require_relative 'api_fetcher'
 require_relative 'data_filter'
 
-
 get '/' do
   content_type :json
   fetcher = ApiFetcher.new

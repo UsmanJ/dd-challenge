@@ -43,5 +43,18 @@ class DataFilter
     results
   end
 
+  def common_materials
+    materials = Hash.new(0)
+    results = []
+    data['results'].each do |item|
+      item['materials'].each do |material|
+        materials[material] += 1
+      end
+    end
+    materials = materials.sort {|a,b| a[1] <=> b[1]}
+    5.times { results += materials.pop }
+    results
+  end
+
 
 end
