@@ -33,6 +33,14 @@ class DataFilter
     data['results'].minmax {|a,b|a['quantity'] <=> b['quantity']}
   end
 
+  def json_price
+    results = {}
+    results['average'] = average_price
+    results['highest_quantity'] = min_max_price[1]
+    results['lowest_quantity'] = min_max_price[0]
+    results
+  end
+
   def json_quantity
     results = {}
     results['average'] = average_quantity
