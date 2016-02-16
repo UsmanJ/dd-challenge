@@ -3,7 +3,6 @@ require 'json'
 require_relative 'api_fetcher'
 require_relative 'data_filter'
 
-
 get '/' do
   content_type :json
   fetcher = ApiFetcher.new
@@ -17,4 +16,12 @@ get '/quantity' do
   fetcher.request
   filter = DataFilter.new(fetcher.response_data)
   filter.json_quantity.to_json
+end
+
+get '/materials' do
+  content_type :json
+  fetcher = ApiFetcher.new
+  fetcher.request
+  filter = DataFilter.new(fetcher.response_data)
+  filter.json_materials.to_json
 end
