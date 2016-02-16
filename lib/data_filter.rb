@@ -61,6 +61,38 @@ class DataFilter
     5.times do
       results += counts.pop
     end
+  end
+
+  def common_materials
+    materials = Hash.new(0)
+    results = []
+    data['results'].each do |item|
+      item['materials'].each do |material|
+        materials[material] += 1
+      end
+    end
+    materials = materials.sort {|a,b| a[1] <=> b[1]}
+    5.times { results += materials.pop }
+    results.reject {|v| results.index(v).odd?}
+  end
+
+  def common_materials_listings
+    materials = common_materials
+    results = []
+    data['results'].each do |item|
+      item['materials'].each do |material|
+        if materials.include? material
+          results.push(item)
+        end
+      end
+    end
+    results.uniq
+  end
+
+  def json_materials
+    results = {}
+    results['top_5'] = common_materials
+    results['listings_with_common_materials'] = common_materials_listings
     results
   end
 
