@@ -9,6 +9,7 @@ class ApiFetcher
   def initialize(url = 'https://openapi.etsy.com/v2/listings/active')
     @base_url = url
     @key = ENV['ETSYKEY']
+    @response = ''
   end
 
   def build_url
@@ -17,10 +18,13 @@ class ApiFetcher
 
   def request
     self.response = HTTParty.get(build_url, verify: false)
-    p JSON.parse(response.body)
   end
 
+  def response_data
+    response.body
+  end
 
+  private
 
   attr_accessor :response
 
