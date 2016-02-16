@@ -1,5 +1,5 @@
 require 'sinatra'
-require "./lib/deloitte assessment day"
+require "./lib/app"
 
 set :environment, :development
 set :public_folder, Proc.new { File.join(root, "public") }
