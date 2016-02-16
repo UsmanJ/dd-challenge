@@ -51,7 +51,7 @@ describe DataFilter do
   context '#min_max_quantity' do
 
     it 'should return the items with the highest and lowest quantity' do
-      expect(data_filter.min_max_quantity).to eq([{'quantity'=>2}, {'quantity'=>4}])
+      expect(data_filter.min_max_quantity).to eq([{"quantity"=>2, "materials"=>["wood", "steel"]}, {"quantity"=>4, "materials"=>["wood", "iron"]}])
     end
 
   end
