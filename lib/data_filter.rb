@@ -4,16 +4,16 @@ class DataFilter
 
   attr_reader :api_fetch
 
-  def initialize(api_fetch = ApiFetcher.new)
-    @api_fetch = api_fetch.request
+  def initialize(data)
+    @data = data
   end
 
   def count
-    @api_fetch['count']
+    @data['count']
   end
 
   def results
-    @api_fetch['results']
+    @data['results']
   end
 
   def lowest_price

@@ -16,4 +16,8 @@ describe DataFilter do
   # it 'should output a json object' do
   #   expect(data_filter.lowest_price).to eq(50100)
   # end
+
+
+
+
 end
