@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 require_relative 'api_fetcher'
 
 class DataFilter
