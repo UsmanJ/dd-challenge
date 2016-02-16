@@ -14,13 +14,8 @@ class DataFilter
   end
 
   def average_price
-    @data['results']
-    i = 0
     sum = 0
-    while i < @data['results'].count
-      sum += @data['results'][i]['price'].to_f
-      i += 1
-    end
+    data['results'].each { |item| sum += item['price'].to_f }
     (sum / @data['results'].count).round(2)
   end
 
