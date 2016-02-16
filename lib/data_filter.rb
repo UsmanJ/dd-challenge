@@ -13,16 +13,14 @@ class DataFilter
     data['count']
   end
 
-  def results
-    data['results']
-  end
-
-  def lowest_price
-
-  end
-
   def average_price
+    sum = 0
+    data['results'].each { |item| sum += item['price'].to_f }
+    (sum / @data['results'].count).round(2)
+  end
 
+  def min_max_price
+    data['results'].minmax {|a,b|a['price'] <=> b['price']}
   end
 
   def average_quantity
@@ -33,6 +31,14 @@ class DataFilter
 
   def min_max_quantity
     data['results'].minmax {|a,b|a['quantity'] <=> b['quantity']}
+  end
+
+  def json_price
+    results = {}
+    results['average'] = average_price
+    results['highest_quantity'] = min_max_price[1]
+    results['lowest_quantity'] = min_max_price[0]
+    results
   end
 
   def json_quantity

@@ -18,6 +18,14 @@ get '/quantity' do
   filter.json_quantity.to_json
 end
 
+get '/price' do
+  content_type :json
+  fetcher = ApiFetcher.new
+  fetcher.request
+  filter = DataFilter.new(fetcher.response_data)
+  filter.json_price.to_json
+end
+
 get '/materials' do
   content_type :json
   fetcher = ApiFetcher.new
