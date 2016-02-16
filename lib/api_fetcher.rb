@@ -17,7 +17,7 @@ class ApiFetcher
 
   def request
     self.response = HTTParty.get(build_url, verify: false)
-
+    p JSON.parse(response.body)
   end
 
 
