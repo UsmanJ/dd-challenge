@@ -25,4 +25,11 @@ class DataFilter
 
   end
 
+  def average_quantity
+    total = 0
+    data['results'].each { |item| total += item['quantity'] }
+    total / data['results'].length
+  end
+
+
 end
