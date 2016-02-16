@@ -5,5 +5,5 @@ get '/' do
   content_type :json
   fetcher = ApiFetcher.new
   fetcher.request
-  fetcher.ok? ? fetcher.response_data : fail "Bad request"
+  fetcher.ok? ? fetcher.response_data : (fail "Bad request")
 end

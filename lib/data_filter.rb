@@ -1,19 +1,20 @@
 require_relative 'api_fetcher'
+require 'json'
 
 class DataFilter
 
-  attr_reader :api_fetch
+  attr_reader :api_fetch, :data
 
   def initialize(data)
-    @data = data
+    @data = JSON.parse(data)
   end
 
   def count
-    @data['count']
+    data['count']
   end
 
   def results
-    @data['results']
+    data['results']
   end
 
   def lowest_price
