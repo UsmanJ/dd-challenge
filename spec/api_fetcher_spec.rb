@@ -16,11 +16,9 @@ describe ApiFetcher do
   context '#request' do
 
     it 'makes an api request' do
-      HTTParty.
-        should_receive(:get).
-        with(url).
-        and_return('')
+      expect(HTTParty).to receive(:get).with(url, {:verify=>false}){''}
       apiFetch.request
+      expect(apiFetch.response).to eq('')
     end
 
   end
