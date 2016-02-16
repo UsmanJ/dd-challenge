@@ -40,9 +40,11 @@ PLATFORMS
 
 DEPENDENCIES
   httparty
+  json
   rspec
+  rspec-mocks
   sinatra
   thin
 
 BUNDLED WITH
-   1.10.6
+   1.11.2
